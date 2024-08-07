@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option go_package="github.com/hex4coder/ams/common/api";
+
+package api;
+
+
+service UserService {
+    rpc CreateUser(CreateUserRequest) returns (User);
+    rpc GetUser(GetUserRequest) returns (GetUserResponse);
+}
+
+message GetUserRequest {
+    string ID = 1;
+}
+
+message GetUserResponse {
+    string Email = 1;
+    string Name = 2;
+}
+
+message CreateUserRequest {
+    string Name = 2;
+    string Email = 3;
+    string Password = 4;
+}
+
+message User {
+    string ID = 1;
+    string Name = 2;
+    string Email = 3;
+    string Password = 4;
+}
